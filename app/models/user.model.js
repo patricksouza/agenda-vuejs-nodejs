@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       ncelular: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       email: {
         type: Sequelize.STRING

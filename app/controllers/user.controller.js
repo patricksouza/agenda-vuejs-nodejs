@@ -4,7 +4,7 @@ const op = db.Sequelize.Op;
 
 
 exports.create = (req,res) =>{
-    if(!req.body.title){
+    if(!req.body.nome){
         res.status(400).send({
             message: 'Não pode ser vazio'
         });

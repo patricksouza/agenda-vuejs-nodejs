@@ -9,7 +9,7 @@ var corsOptions = {
     origin: 'http://localhost:8080/'
 };
 
-require('./app/routes/user.route')(app);
+
 
 app.use(cors(corsOptions));
 
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended:true}));
     res.json({message: 'Teste'});
 });
  */
-
+require('./app/routes/user.route')(app);
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log('Servidor na porta: ${PORT}');

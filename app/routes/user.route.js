@@ -1,13 +1,14 @@
 module.exports = app=>{
 
-    const users = require('../controllers/user.controller.js');
+    const user = require('../controllers/user.controller.js');
 
     var router = require('express').Router();
 
     //Adicionar contato
-    router.post('/',users.create);
+    router.post('/',user.create);
 
     //Listar todos os contatos
-    router.get('/',users.findAll);
+    router.get('/lista',user.findAll);
 
+    app.use('/api/contatos',router);
 }
