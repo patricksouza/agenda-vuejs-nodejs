@@ -48,11 +48,37 @@ exports.findAllContacts = (req,res) =>{
     });
 };
 exports.findOne = (req,res) =>{
+    const id = req.params.id;
 
+    User.findByPk(id).then(data=>{
+
+    }).catch(err=>{
+        res.status(500).send({
+            message: 'Erro ao buscar contato'
+        });
+    });
 };
 
 exports.update = (req,res) =>{
+    const id = req.params.id;
 
+    User.update(req.body,{
+
+    }).then(num=>{
+        if(num==1){
+            res.send({
+                message:'Contato atualizado!'
+            });
+        }else{
+            res.send({
+                message:'Contato não encontrado para atualização' 
+            });
+        }
+    }).catch(err=>{
+        res.status(500).send({
+            message:'Erro ao atualizar contato!'
+        });
+    });
 };
 
 exports.delete = (req,res) =>{
@@ -79,6 +105,15 @@ exports.delete = (req,res) =>{
 };
 
 exports.deleteAll = (req,res) =>{
-
+    User.destroy({
+        where: {},
+        truncate: false
+    }).then(nums=>{
+        res.send({message: ''})
+    }).catch(err=>{
+        res.status(500).send({
+           message: err.message || 'Erro ao deletar contatos' 
+        });
+    });
 };
 

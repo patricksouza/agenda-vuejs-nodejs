@@ -13,10 +13,15 @@ module.exports = app=>{
     //Listar todos os contatos
     router.get('/contatos',user.findAllContacts);
 
+    //Encontrar um contato
+    router.get('/procurar/:id',user.findOne);
 
     //Deletar um contato
     router.delete('/excluir/:id',user.delete);
 
+    //Atualizar um contato
+    router.put('/editar/:id',user.update);
+    
 
     app.use('/api/',router);
 }
