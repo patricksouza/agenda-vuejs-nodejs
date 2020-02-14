@@ -5,10 +5,18 @@ module.exports = app=>{
     var router = require('express').Router();
 
     //Adicionar contato
-    router.post('/',user.create);
+    router.post('/criar',user.create);
+
+    //Pesquisar um contato
+    router.get('/procurar',user.findAll);
 
     //Listar todos os contatos
-    router.get('/lista',user.findAll);
+    router.get('/contatos',user.findAllContacts);
 
-    app.use('/api/contatos',router);
+
+    //Deletar um contato
+    router.delete('/excluir/:id',user.delete);
+
+
+    app.use('/api/',router);
 }
