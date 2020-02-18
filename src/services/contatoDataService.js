@@ -22,8 +22,10 @@ class contatoDataService{
     }
 
     deleteAll(contato){
-        return http.get(`/contato?c=${contato}`);
+        return http.get(`/api/excluir/?c=${contato}`);
     }
-
+    findByNome(nome) {
+        return http.get(`/api/procurar?q=${nome}`);
+     }
 }
 export default new contatoDataService();

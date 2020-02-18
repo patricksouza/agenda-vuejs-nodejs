@@ -19,6 +19,9 @@ module.exports = app=>{
     //Deletar um contato
     router.delete('/excluir/:id',user.delete);
 
+    //Deletar todos
+    router.delete('/excluirTodos',user.deleteAll);
+
     //Atualizar um contato
     router.put('/editar/:id',user.update);
     
